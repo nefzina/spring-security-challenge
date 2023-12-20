@@ -2,6 +2,7 @@ package com.wildcodeschool.springsecurity.user.application;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -18,7 +19,9 @@ public class SecurityConfig {
                         .requestMatchers("/avengers/assemble").hasRole("CHAMPION")
                         .requestMatchers("/secret-bases/**").hasRole("DIRECTOR")
                         .anyRequest().authenticated()
-                );
+                )
+                .httpBasic(Customizer.withDefaults())
+                .formLogin(Customizer.withDefaults());
 
         return http.build();
     }

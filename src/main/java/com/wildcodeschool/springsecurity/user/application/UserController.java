@@ -21,6 +21,6 @@ public class UserController {
 
     @GetMapping("/secret-bases")
     public String admin(){
-        return "list of Wild code school campuses  : Toulouse, Paris, Lyon, Nantes, Bordeaux, Lille";
+        return "list de campus de la Wild code school";
     }
 }

@@ -27,7 +27,7 @@ public class UserDetailsServiceImpl {
         UserDetails admin = User
                 .withUsername("Nick")
                 .password(encoder.encode("flerken"))
-                .roles("Director")
+                .roles("DIRECTOR")
                 .build();
 
         return new InMemoryUserDetailsManager(List.of(user, admin));
